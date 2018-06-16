@@ -24,7 +24,7 @@ git_signing_key: CEC04AB6210CA927
 
 # Whether to install plugins automatically. If not, just run
 # :PlugInstall while in vim.
-vim_install_plugins: yes
+vim_install_plugins: no
 
 # Utilities that don't get installed by a role
 mac_homebrew_packages:
