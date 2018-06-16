@@ -5,6 +5,7 @@
 - name: Install global ruby gems
   gem: name={{item}} state=present
   with_items: '{{ruby_global_gems}}'
+  when: item > 0
 
 # TODO: Install rvm
 # TODO: Fedora and Debian
