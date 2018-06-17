@@ -108,9 +108,6 @@ let g:scratch_persistence_file = '.scratch'
 " Open scratch buffer with space-tab (automatically set syntax to python)
 nnoremap <silent> <leader><tab> :Scratch<cr>
 
-Plug 'machakann/vim-highlightedyank'  " Highlight yank
-if !exists('##TextYankPost') | map y <Plug>(highlightedyank) | endif
-
 " GIT
 Plug 'airblade/vim-gitgutter'
 " Set gitgutter's bindings manually to avoid clashes
@@ -141,12 +138,12 @@ let g:gist_open_browser_after_post = 1
 " COLOR
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
-Plug 'nightsense/night-and-day'  " switch colorschemes based on time of day
-" PaperColor in the day, hybrid-sl at night
-let g:nd_themes = [
-  \ ['4:00',  'PaperColor', 'light' ],
-  \ ['21:00', 'hybrid-sl', 'dark' ],
-  \ ]
+" Plug 'nightsense/night-and-day'  " switch colorschemes based on time of day
+" " PaperColor in the day, hybrid-sl at night
+" let g:nd_themes = [
+"   \ ['4:00',  'PaperColor', 'light' ],
+"   \ ['21:00', 'hybrid-sl', 'dark' ],
+"   \ ]
 
 " LANGUAGE-SPECIFIC
 Plug 'sheerun/vim-polyglot'  " syntax files for most languages
@@ -178,7 +175,7 @@ filetype plugin indent on
 set encoding=utf-8
 set relativenumber
 set autoread " reload files when changed on disk, i.e. via `git checkout`
-set clipboard^=unnamedplus,unnamed " Make "yanks" work with system clipboard
+" set clipboard^=unnamedplus,unnamed " Make "yanks" work with system clipboard
 
 " Indents
 set autoindent
@@ -222,8 +219,6 @@ nmap <leader>, :e $MYVIMRC<CR>
 noremap <silent> <leader>V :source $MYVIMRC<cr>
 " Search and replace, using : as a separator instead of /
 noremap <leader>sr :%s:::cg<Left><Left><Left><Left>
-" Switch between files
-nnoremap <leader>b :e#<CR>
 " Remove trailing whitespace with Backspace
 nnoremap <BS> :%s/\s\+$//<cr>:let @/=''<CR>
 " select last pasted text
