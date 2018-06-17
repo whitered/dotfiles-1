@@ -117,7 +117,7 @@ nmap <leader>gH <Plug>GitGutterUndoHunk
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
 
-Plug 'tpope/vim-fugitive'  " git integration
+" Plug 'tpope/vim-fugitive'  " git integration
 Plug 'tpope/vim-rhubarb'  " For :Gbrowse
 map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
