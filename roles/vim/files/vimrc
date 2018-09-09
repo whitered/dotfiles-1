@@ -8,7 +8,6 @@ call plug#begin()
 
 Plug 'tpope/vim-sensible' " Sensible defaults
 Plug 'rstacruz/vim-opinion' " More sensible defaults
-set numberwidth=3
 
 Plug 'ervandew/supertab' " Tab complete everything
 
@@ -117,6 +116,9 @@ nmap <leader>gH <Plug>GitGutterUndoHunk
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
 
+" update gitgutter faster
+set updatetime=500
+
 " Plug 'tpope/vim-fugitive'  " git integration
 Plug 'tpope/vim-rhubarb'  " For :Gbrowse
 map <leader>gs :Gstatus<CR>
@@ -159,6 +161,11 @@ let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
 Plug 'chrisbra/Colorizer'  " Highlight CSS colors
 let g:colorizer_auto_filetype='css,html'
 
+" --- Elixir ---
+Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+Plug 'slashmili/alchemist.vim'
+
 call plug#end()
 
 filetype plugin indent on
@@ -170,6 +177,9 @@ set encoding=utf-8
 set relativenumber
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 " set clipboard^=unnamedplus,unnamed " Make "yanks" work with system clipboard
+set numberwidth=3
+set splitright
+set splitbelow
 
 " Indents
 set autoindent
@@ -284,3 +294,5 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 " Hide scrollbars and menu
 set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
+" Do not use global flag by default in replace
+set nogdefault
