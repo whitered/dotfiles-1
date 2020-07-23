@@ -167,6 +167,10 @@ Plug 'mhinz/vim-mix-format'
 Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-endwise' " auto add 'end' to 'do' blocks
 
+Plug 'tidalcycles/vim-tidal'
+let g:tidal_default_config = {"socket_name": "default", "target_pane": "1.1"}
+let maplocalleader=","
+
 call plug#end()
 
 filetype plugin indent on
@@ -190,6 +194,9 @@ set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
 set noerrorbells visualbell t_vb=
+
+" No redrawing during macros
+set lazyredraw
 
 """ VISUAL SETTINGS """
 if &term =~ '256color' | set t_ut= | endif
@@ -269,7 +276,7 @@ nnoremap <leader>cd :lcd %:p:h<CR>
 " Split lines (opposite of J)
 nnoremap S i<CR><Esc>
 nnoremap <leader>N "=strftime("%F")<CR>P
-inoremap <C-r>n <C-R>=strftime("%F")<CR>
+vnoremap <C-r> "hy:%s/<C-r>h//<left>
 
 augroup configgroup
   autocmd!
@@ -295,5 +302,3 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 " Hide scrollbars and menu
 set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
-" Do not use global flag by default in replace
-set nogdefault
